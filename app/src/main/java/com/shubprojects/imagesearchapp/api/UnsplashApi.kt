@@ -1,6 +1,7 @@
-package com.codinginflow.imagesearchapp.api
+package com.shubprojects.imagesearchapp.api
 
-import com.codinginflow.imagesearchapp.BuildConfig
+
+import com.shubprojects.imagesearchapp.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -10,7 +11,7 @@ interface UnsplashApi {
     companion object{
 
         const val BASE_URL = "http//api.unsplash.com/"
-        const val CLIENT_ID = BuildConfig.UNSPLASH_ACCESS_KEY
+        const val CLIENT_ID =BuildConfig.UNSPLASH_ACCESS_KEY
     }
 
     @Headers("Accept-Version : v1" , "Authorization: Client_ID $CLIENT_ID")
