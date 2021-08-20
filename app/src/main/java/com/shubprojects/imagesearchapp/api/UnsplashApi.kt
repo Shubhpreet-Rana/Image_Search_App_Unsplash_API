@@ -1,6 +1,5 @@
 package com.shubprojects.imagesearchapp.api
 
-
 import com.shubprojects.imagesearchapp.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -10,11 +9,11 @@ interface UnsplashApi {
 
     companion object{
 
-        const val BASE_URL = "http//api.unsplash.com/"
+        const val BASE_URL = "https://api.unsplash.com/"
         const val CLIENT_ID =BuildConfig.UNSPLASH_ACCESS_KEY
     }
 
-    @Headers("Accept-Version : v1" , "Authorization: Client_ID $CLIENT_ID")
+    @Headers("Accept-Version: v1", "Authorization: Client-ID $CLIENT_ID")
     @GET("search/photos")
     suspend fun searchPhotos(
         @Query("query") query: String,

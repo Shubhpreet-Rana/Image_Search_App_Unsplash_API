@@ -2,6 +2,7 @@ package com.shubprojects.imagesearchapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.shubprojects.imagesearchapp.data.UnsplashRepository
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,4 +22,5 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.codinginflow.imagesearchapp", appContext.packageName)
     }
+
 }
