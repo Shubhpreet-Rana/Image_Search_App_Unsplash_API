@@ -1,7 +1,10 @@
 package com.shubprojects.imagesearchapp.ui.gallery
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -9,6 +12,7 @@ import com.shubprojects.imagesearchapp.R
 import com.shubprojects.imagesearchapp.databinding.FragmentGalleryBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_gallery.*
+import java.util.*
 
 @AndroidEntryPoint
 class GalleryFragment :Fragment(R.layout.fragment_gallery) {
@@ -37,7 +41,35 @@ class GalleryFragment :Fragment(R.layout.fragment_gallery) {
             adapter.submitData(viewLifecycleOwner.lifecycle,it)
         }
 
+        setHasOptionsMenu(true)
 
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.menu_gallery,menu)
+
+        val searhItem = menu.findItem(R.id.search_button)
+        val searchView = searhItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+               if (query!= null){
+                   binding.recyclerView.scrollToPosition(0)
+                   viewModel.searchPhoto(query)
+                   searchView.clearFocus()
+               }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+
+        })
     }
 
     override fun onDestroyView() {
