@@ -1,8 +1,13 @@
 package com.shubprojects.imagesearchapp
 
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.liveData
+import androidx.paging.cachedIn
+import com.shubprojects.imagesearchapp.data.UnsplashRepository
 import org.junit.Test
 
 import org.junit.Assert.*
+import javax.inject.Inject
 
 /**
  * Example local unit test, which will execute on the development machine (host).

@@ -23,4 +23,5 @@ class ExampleInstrumentedTest {
         assertEquals("com.codinginflow.imagesearchapp", appContext.packageName)
     }
 
+
 }

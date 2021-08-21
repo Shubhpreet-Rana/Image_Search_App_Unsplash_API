@@ -16,7 +16,7 @@ class UnsplashPhotoAdapter :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagingViewHolder {
-        val binding : UnsplashedItemPhotoBinding =
+        val binding: UnsplashedItemPhotoBinding =
             UnsplashedItemPhotoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PagingViewHolder(binding)
     }
@@ -33,20 +33,20 @@ class UnsplashPhotoAdapter :
 
     class PagingViewHolder(
         private val binding: UnsplashedItemPhotoBinding
-        ) : RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(photo : UnsplashPhoto){
-                binding.apply {
-                    Glide.with(itemView)
-                        .load(photo.urls.regular)
-                        .error(R.drawable.ic_error)
-                        .centerCrop()
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .into(unsplashImage)
+        fun bind(photo: UnsplashPhoto) {
+            binding.apply {
+                Glide.with(itemView)
+                    .load(photo.urls.regular)
+                    .error(R.drawable.ic_error)
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(unsplashImage)
 
-                    imageName.text = photo.user.username
-                }
+                imageName.text = photo.user.username
             }
+        }
     }
 
     companion object {
@@ -67,6 +67,5 @@ class UnsplashPhotoAdapter :
 
         }
     }
-
 
 }
